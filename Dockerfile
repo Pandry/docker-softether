@@ -16,7 +16,7 @@ RUN adduser -D -g softether -G softether -s /sbin/nologin ; \
     rm -rf vpnserver.tar.gz; \
     cd vpnserver/ ; \
     make i_read_and_agree_the_license_agreement; \
-    chown -R softether:softether /vpnserver; \
+    chown -R softether /vpnserver; \
     setcap 'cap_net_bind_service=+ep' /vpnserver/vpnserver
 
 USER softether
