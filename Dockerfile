@@ -10,7 +10,7 @@ RUN addgroup -S softether ; adduser -D -H softether -g softether -G softether -s
         curl -L -o vpnserver.tar.gz $(curl -s https://api.github.com/repos/SoftEtherVPN/SoftEtherVPN_Stable/releases | grep browser_download_url | grep softether-vpnserver | grep linux-x64-64bit | head -n 1 | cut -d '"' -f 4); \
     else \
         curl -L -o vpnserver.tar.gz $(curl -s https://api.github.com/repos/SoftEtherVPN/SoftEtherVPN_Stable/releases | grep browser_download_url | grep softether-vpnserver | grep linux-x64-64bit | grep "$SOFTETHER_VERSION" | cut -d '"' -f 4); \
-    fi \
+    fi; \
     tar zxvf vpnserver.tar.gz; \
     rm -rf vpnserver.tar.gz; \
     cd vpnserver/ ; \
