@@ -6,6 +6,7 @@ ENV SOFTETHER_VERSION="latest"
 RUN addgroup -S softether ; adduser -D -H softether -g softether -G softether -s /sbin/nologin ; \
     yum install -y curl make gcc; \
     mkdir -p /etc/vpnserver /var/log/vpnserver; ln -s /etc/vpnserver/vpn_server.config /usr/vpnserver/vpn_server.config ; \
+    cd / ; \
     if [ "$SOFTETHER_VERSION" = "latest"]; then \
         curl -L -o vpnserver.tar.gz $(curl -s https://api.github.com/repos/SoftEtherVPN/SoftEtherVPN_Stable/releases | grep browser_download_url | grep softether-vpnserver | grep linux-x64-64bit | head -n 1 | cut -d '"' -f 4); \
     else \
